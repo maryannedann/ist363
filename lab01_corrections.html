@@ -11,22 +11,32 @@
             background-color:#D4EBF8;
             border-radius: 1em;
             margin: 30px;
+            padding-left: 300px;
+            padding-right: 300px;
+            padding-bottom: 30px;
+
+
         }
         .maintext {
             margin: 0 auto;
-            width: 72%;
+            width: 100%;
             padding: 20px;
         }
         h1 {color: #0A3981}
         strong {color: #E38E49;}
-        .fourimages {
+        .images {
+            display: flex;
+            flex-wrap: wrap;
             text-align: center;
-            padding-bottom: 30px;
         }
-        .imgs {
-            height: 350px;
-            width: 350px;
-            }
+        .images div {
+            flex: 1;
+        }
+        img {
+            width: 100%;
+            min-width: 250px;
+        }
+        
         
            
     </style>
@@ -43,10 +53,12 @@
     </div>
 
     <div class="images">
-        <img src="../lab01/headshot.jpg" class="imgs">
-        <img src="../lab01/family.jpg" class="imgs">
-        <img src="../lab01/sidearm.jpg" class="imgs">
-        <img src="../lab01/bones.png" class="imgs">
+        <div><img src="../lab01/headshot.jpg"></div>
+        <div><img src="../lab01/family.jpg"></div>
+    </div>
+    <div class="images">
+        <div><img src="../lab01/sidearm.jpg"></div>
+        <div><img src="../lab01/bones.png"></div>
     </div>
     
     
