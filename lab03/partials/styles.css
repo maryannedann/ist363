@@ -1,0 +1,255 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-size: 3em;
+  padding: 30px;
+}
+
+h2 {
+  color: #e2625c;
+  font-size: 2em;
+}
+
+.button {
+  background-color: #e89b6a;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.header_nav {
+  text-align: center;
+  color: white;
+  padding: 50px;
+  background-color: #e89b6a;
+}
+
+.recipes {
+  display: flex;
+  padding: 20px;
+}
+
+.recipe_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  border: rgb(198, 194, 194) solid 1px;
+  border-radius: 20px;
+}
+
+.recipe_box img {
+  width: 300px;
+  height: 300px;
+}
+
+.recipe_box h2 {
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  color: #e2625c;
+  font-family: "Helvetica", sans-serif;
+}
+
+.email_signup {
+  display: flex;
+  width: 100%;
+  height: 300px;
+  background-color: #e4fdc3;
+  border-radius: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #e2625c;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 10px;
+  margin: 20px;
+}
+
+.about img {
+  width: 100%;
+  height: 1400px;
+  border-radius: 20px;
+}
+
+.about_text {
+  padding: 40px;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  padding: 50px;
+  background-color: #8ae2c8;
+  justify-content: center;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .header_nav {
+      padding: 20px;
+  }
+
+  nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav a {
+      display: block;
+      padding: 10px;
+  }
+
+  .recipes {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .recipe_box {
+      width: 90%;
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .recipe_box img {
+      width: 100%;
+      height: auto;
+  }
+
+  .email_signup {
+      height: auto;
+      width: auto;
+      padding: 20px;
+      text-align: center;
+  }
+
+  .email_signup img {
+      width: 50px;
+      height: auto;
+  }
+
+  input {
+      width: 80%;
+  }
+
+  .about {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .about img {
+      width: 100%;
+      height: auto;
+  }
+
+  .about_text {
+      padding: 20px;
+  }
+
+  footer {
+      text-align: center;
+      padding: 20px;
+  }
+
+  footer nav {
+      flex-direction: column;
+  }
+
+  footer nav a {
+      padding: 5px;
+  }
+}
+
+
+/*# sourceMappingURL=styles.css.map */

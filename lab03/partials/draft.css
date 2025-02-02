@@ -1,0 +1,106 @@
+.recipes {
+    display: flex;
+}
+
+.button {
+    background-color: #e89b6a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.header_nav {
+    text-align: center;
+    background-color: #e89b6a;
+    padding: 50px;
+}
+
+.recipes {
+    display: flex;
+  
+    padding: 20px;
+
+}
+.recipe_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    border: rgb(198, 194, 194) solid 1px;
+    border-radius: 20px;
+}
+
+.recipe_box img {
+    width: 300px;
+    height: 300px;
+}
+
+.recipe_box figcaption {
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    color: #e2625c;
+}
+
+.email_signup {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    background-color: #e4fdc3;
+    border-radius: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 10px;
+    margin: 20px;
+}
+
+.about img {
+    width: 100%;
+    height: 1400px;
+    border-radius: 20px;
+}
+
+.about_text {
+    padding: 40px;
+}
+footer {
+    background-color: #8ae2c8;
+    padding: 50px;
+    justify-content: center;
+    text-align: center;
+}
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+  }
+  
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+    left: 0;
+  }
