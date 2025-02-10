@@ -80,16 +80,15 @@ h2 {
 
 .recipes {
   display: flex;
-  padding: 20px;
+  padding: 40px;
+  margin: 40px;
+  justify-content: space-between;
 }
 
 .recipe_box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  border: rgb(198, 194, 194) solid 1px;
-  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: -10px 10px 20px #888888;
+  border-radius:  20px;
 }
 
 .recipe_box img {
@@ -99,7 +98,7 @@ h2 {
 
 .recipe_box h2 {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   border-radius: 20px;
   color: #e2625c;
   font-family: "Helvetica", sans-serif;
