@@ -8,17 +8,16 @@
 </head>
 <body>
     <nav>
-        <div class="flex items-center justify-between  mx-auto bg-indigo-950 p-4">
-
+        <div class="flex items-center justify-between mx-auto bg-indigo-950 p-4">
             <h1 class="text-2xl font-bold text-white">Orange News</h1>    
-
-            <div class="flex space-x-6 text-white">
+            <div class="hidden sm:flex space-x-6 text-white"> 
                 <a href="#">Home</a>
                 <a href="#">Latest</a>
                 <a href="#">Scores</a>
                 <a href="#">Video</a>
                 <a href="#">More</a>
             </div>
+        </div>
     </nav>
 
     <div class="overflow-hidden rounded-xl w-11/12 mx-auto mt-10 bg-slate-800">
@@ -34,7 +33,7 @@
             <h2>More Featured Stories</h2>
         </div>
         
-        <div class="grid grid-cols-3 gap-6 w-11/12 mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
             <div class="bg-white overflow-hidden rounded-xl shadow-2xl shadow-black/50">
                 <img src="../lab04/images/graduates.jpg" alt="graduates" class="w-full rounded-xl p-4">
                 <div class="p-4">
@@ -61,9 +60,9 @@
         </div>
     </div>
 
-    <div class="flex justify-between w-11/12 mx-auto mt-10 gap-10">
+    <div class="flex flex-col sm:flex-row w-11/12 mx-auto mt-10 gap-10">
         
-        <div class="w-1/2">
+        <div class="w-full sm:w-1/2">
             <h2 class="text-black text-lg font-bold w-11/12 my-10">Top Headlines</h2>
     
             <div class="bg-white overflow-hidden rounded-xl shadow-2xl shadow-black/50 p-5 mb-5">
@@ -82,7 +81,7 @@
             </div>
         </div>
     
-        <div class="w-1/2">
+        <div class="w-full sm:w-1/2">
             <h2 class="text-black text-lg font-bold w-11/12 my-10">Game Scores</h2>
     
             <div class="bg-white overflow-hidden rounded-xl shadow-2xl shadow-black/50 p-5">
@@ -110,19 +109,17 @@
     </div>
 
     <div class="overflow-hidden rounded-xl w-11/12 mx-auto mt-10 bg-slate-800 text-white">
-    <div class="p-10">
-        <h2 class="text-lg font-bold">Subscribe to Our Newsletter</h2>
-        <p>Stay updated with the latest news, scores, and exclusive content delivered straight to you inbox!</p>
-        <br>
-        <form action="index.html" method="post">
-            <input type="email" name="email" id="email" placeholder="Enter your email" class="w-1/2 p-2 rounded-xl">
+        <div class="p-10">
+            <h2 class="text-lg font-bold">Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest news, scores, and exclusive content delivered straight to you inbox!</p>
             <br>
-            <button class="bg-yellow-400 text-black p-3 rounded-xl w-1/4">Subscribe</button>
-        </form>
+            <form action="index.html" method="post">
+                <input type="email" name="email" id="email" placeholder="Enter your email" class="w-full p-2 rounded-xl">
+                <br>
+                <button class="bg-yellow-400 text-black p-3 rounded-xl w-full mt-3">Subscribe</button>
+            </form>
+        </div>
     </div>
-    </div>
 
-    
-
-
-</html
+</body>
+</html>
