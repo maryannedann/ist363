@@ -1,0 +1,12 @@
+
+$navyblue: #0b0b70; 
+$lightblue: #c0cef5; 
+
+.bg-navyblue {
+  background-color: $navyblue;
+}
+
+.bg-lightblue {
+  background-color: $lightblue;
+}
+@import "../bootstrap-5.3.3-dist/scss/bootstrap";

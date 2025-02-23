@@ -12,7 +12,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,i
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -52,16 +52,6 @@ table {
   border-spacing: 0;
 }
 
-h1 {
-  font-size: 3em;
-  padding: 30px;
-}
-
-h2 {
-  color: #e2625c;
-  font-size: 2em;
-}
-
 .button {
   background-color: #e89b6a;
   border: none;
@@ -80,15 +70,16 @@ h2 {
 
 .recipes {
   display: flex;
-  padding: 40px;
-  margin: 40px;
-  justify-content: space-between;
+  padding: 20px;
 }
 
 .recipe_box {
-  overflow: hidden;
-  box-shadow: -10px 10px 20px #888888;
-  border-radius:  20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  border: rgb(198, 194, 194) solid 1px;
+  border-radius: 20px;
 }
 
 .recipe_box img {
@@ -98,7 +89,7 @@ h2 {
 
 .recipe_box h2 {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   border-radius: 20px;
   color: #e2625c;
   font-family: "Helvetica", sans-serif;
@@ -115,13 +106,6 @@ h2 {
   flex-direction: column;
   text-align: center;
   margin: 20px;
-}
-
-input {
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  border: 1px solid #e2625c;
 }
 
 .about {
@@ -154,7 +138,7 @@ footer {
 nav a {
   position: relative;
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 15px;
 }
 
@@ -165,90 +149,11 @@ nav a::after {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: white;
+  background-color: black;
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
 nav a:hover::after {
   width: 100%;
   left: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .header_nav {
-      padding: 20px;
-  }
-
-  nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  nav a {
-      display: block;
-      padding: 10px;
-  }
-
-  .recipes {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .recipe_box {
-      width: 90%;
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .recipe_box img {
-      width: 100%;
-      height: auto;
-  }
-
-  .email_signup {
-      height: auto;
-      width: auto;
-      padding: 20px;
-      text-align: center;
-  }
-
-  .email_signup img {
-      width: 50px;
-      height: auto;
-  }
-
-  input {
-      width: 80%;
-  }
-
-  .about {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .about img {
-      width: 100%;
-      height: auto;
-  }
-
-  .about_text {
-      padding: 20px;
-  }
-
-  footer {
-      text-align: center;
-      padding: 20px;
-  }
-
-  footer nav {
-      flex-direction: column;
-  }
-
-  footer nav a {
-      padding: 5px;
-  }
-}
-
-
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
