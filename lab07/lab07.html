@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //#1
+        let favNumber = 2
+        console.log ("My favorite number is " + favNumber + ".");
+
+
+        //#2
+        let favoriteFoods = ['steak', 'Chicken Tika Masala', 'ice cream', 'mac and cheese',]
+        console.log (favoriteFoods[1]);
+        favoriteFoods.push("sushi")
+        console.log(favoriteFoods)
+
+        //#3
+        for (let i = 0; i < favoriteFoods.length; i++) {
+            console.log("Favorite Food " +i+": "+ favoriteFoods[i]);
+        }
+
+        //#4
+        for (let i = 0; i < favoriteFoods.length; i++) {
+            if (i !== 4) { 
+                console.log("Favorite Food " + i + ": " + favoriteFoods[i]);
+            }
+        }
+
+
+
+        //#5
+        let book = {
+            title: 'The Alchemist',
+            author: 'Paulo Coelho',
+            yearPublished: '1988',
+            isAvailible: true
+
+        };
+        console.log(book.title +" "+ book.author)
+
+        if (book.isAvailible == "true") {
+            console.log("This book is available for checkout.");
+        } else if (book.isAvailible == "false") {
+            console.log("Sorry, this book is currently checked out.")
+        }
+
+        //#6
+        let x = 0;
+        while (x <= 20) {
+        if (x % 2 === 0) 
+        console.log(x);
+            x++;
+        }
+
+        //#7
+        let randomNumber = Math.floor(Math.random() * 6) + 1;
+        console.log("Your dice roll is:", randomNumber);
+
+
+
+
+    </script>
+    
+</body>
+</html>
