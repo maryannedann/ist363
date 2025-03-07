@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function dogYears(years) {
+            //let dy = years * 7;
+           // return dy;
+         return years * 7;
+        }
+
+        //console.log(dogYears(14));
+        let peopleAge = dogYears(14);
+        console.log(peopleAge);
+    </script>
+
+    <p id="pone" class="odd">One</p>
+    <p>Two</p>
+    <p>Three</p>
+
+    <form id="myForm">
+        <input type="text" name="fname" value="Mary">
+        <input type="text" name="lname" value="Daniel">
+        <input type="submit" value="send form">
+    </form>
+    <br>
+    <button id="myButton">Sign Up</button>
+
+    <script>
+
+        //pick something by id and console loggin
+        let picked = document.getElementById("pone");
+        console.log(picked);
+
+        //pick by class and tag => returns array
+        let oddTags = document.getElementsByClassName('odd');
+        for (i = 0; i < oddTags.length; i++) {
+            console.log(oddTags[i]);
+        }
+
+        let pTags = document.getElementsByTagName('p');
+        for (i = 0; i < pTags.length; i++) {
+            console.log(pTags[i]);
+        }
+
+        // getting element value from a form 
+        console.log(document.getElementById("myForm").elements[0].value);
+
+        // changiing text and HTML in tags
+        document.getElementById("pone").innerHTML = "four";
+        // change form value
+        console.log(document.getElementById("myForm").elements[0].value = "Natasha");
+        // change a style 
+        document.getElementById("pone").style.color = "red";
+        document.getElementById("pone").style.textDecoration = "underline";
+        document.getElementsByTagName('body')[0].style.backgroundColor = "lightblue";
+
+        document.getElementById("myButton").addEventListener("click", myFunction);
+
+        function myFunction() {
+            alert("You clicked the button");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 09</title>
+    <style>
+        body h1 {
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background-color: black;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }  
+
+        .game {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; 
+        }
+
+        .flex1 {
+        display: flex; 
+        align-items: center;      
+        flex-wrap: nowrap;
+        }
+
+        .flex2 {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        }
+        
+        .shieldflex1 {
+            display: flex;
+            width: 50%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .shieldflex2 {
+            display: flex;
+            width: 50%;
+            float: right;
+            margin-left: 5000px;
+        }
+
+        .character img {
+            width: 20%;
+            height: auto;
+        }
+
+        .fireball img {
+            width: 50%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .shieldlevels {
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        #girl {
+            transform: scaleX(-180deg);
+        }
+
+        #fireballright {
+            transform: scaleX(-1);
+        }
+
+
+        #throw-fireball-button {
+            background-color: orange;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        @keyframes moveRight {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(250px); }  
+        }
+
+        @keyframes moveLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-250px); } 
+        }
+
+        #fireballleft.animate {
+            animation: moveRight 1s ease-in-out forwards;
+        }
+
+        #fireballright.animate {
+            animation: moveLeft 1s ease-in-out forwards;
+        }
+
+        #game-result {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fireball Dual</h1>
+
+        <div class="game">
+            <div class="flex1">
+                <div class="character">
+                    <img src="../lab08/images/monster.jpg" alt="Monster" id="monster">
+                </div>
+    
+                <div class="fireball">
+                    <img src="../lab08/images/fireball.gif" alt="Fireball" id="fireballleft">
+                </div>
+            </div>
+
+            <div class="flex2">
+                <div class="fireball">
+                    <img src="../lab08/images/fireball.gif" alt="Fireball" id="fireballright">
+                </div>
+
+                <div class="character">
+                    <img src="../lab08/images/girl.jpg" alt="Girl" id="girl">
+                </div>
+
+                
+            </div>
+ 
+        </div>
+
+        
+            <div class="shieldflex1">
+                <div class="shieldlevels">
+                    <p id="monster-shield">Monster Shield: 100</p>
+                </div>
+            </div>
+            
+            <div class="shieldflex2">
+                <div class="shieldlevels">
+                    <p id="girl-shield">Girl Shield: 100</p>
+                </div>
+            </div>
+      
+       
+       
+        <p id="game-result"></p>
+
+        <div>
+            <button id="throw-fireball-button">Throw Fireball</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        
+        let monsterShield = 100;
+        let girlShield = 100;
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("throw-fireball-button").addEventListener("click", playGame);
+        });
+
+
+        function playGame() {
+            animateFireball(); 
+
+
+                let monsterDamage = Math.floor(Math.random() * 20) + 1;
+                let girlDamage = Math.floor(Math.random() * 20) + 1;
+
+
+                monsterShield = Math.max(0, monsterShield - girlDamage);
+                girlShield = Math.max(0, girlShield - monsterDamage); 
+
+                
+                document.getElementById("monster-shield").innerText = `Monster Shield: ${monsterShield}`;
+                document.getElementById("girl-shield").innerText = `Girl Shield: ${girlShield}`;
+
+                
+                setTimeout(checkWinner, 1000); 
+            }
+
+
+            function animateFireball() {
+                let fireballLeft = document.getElementById("fireballleft");
+                let fireballRight = document.getElementById("fireballright");
+
+                fireballLeft.classList.remove("animate");
+                fireballRight.classList.remove("animate");
+
+                setTimeout(() => {
+                    fireballLeft.classList.add("animate");
+                    fireballRight.classList.add("animate");
+                }, 10);
+            }
+
+
+            function checkWinner() {
+                let resultText = "";
+
+                if (monsterShield === 0 && girlShield === 0) {
+                    resultText = "It's a tie! Both players lost!";
+                } else if (monsterShield === 0) {
+                    resultText = "The Girl Wins! The Monster is defeated!";
+                } else if (girlShield === 0) {
+                    resultText = "The Monster Wins! The Girl is defeated!";
+                }
+
+                if (resultText) {
+                    document.getElementById("game-result").innerText = resultText;
+                    document.getElementById("throw-fireball-button").disabled = true;
+                }
+            }
+
+    </script>
+    
+</body>
+</html>
