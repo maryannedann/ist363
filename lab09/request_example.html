@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        endpoint = 'https://jsonplaceholder.typicode.com/todos/';  // endpoint to get data from
+
+        // STEP 1 - Make a request object
+        const request = new XMLHttpRequest();  // makes an object to make request
+
+        // STEP 2 - Check the staus of request
+        request.addEventListener('readystatechange', () => {  // listening for request to complete
+            if (request.readyState === 4 && reuest.status === 200) {  // if request is complete (4) and data is loaded (200)
+                //console.log(request, request.responseText); 
+                reportResults(request.responseText); 
+            }
+            else if (request.readyState === 4) {
+                //console.log('Could not get data!');
+                reportResults('Error')
+            }
+            //console.log(request, request.readyState);
+        })
+
+        // STEP 3 - Opemn endpoint and send request
+        request.open('GET', endpoint);  // setup kind of request and endpoint
+        request.send();  // actually getting data
+
+        // STEP 4 - Use data 
+        function reportResults (response) {
+            let browserData ='NA';
+            //console.log(response);
+            if (response != 'error') {
+                const myData = JSON.parse(response);
+                //console.log(myData);
+                for (i=0; i< myData.length; i++) {
+                    //console.log(myData[i].title);
+                    browserData += myData[i].title + '<br>';
+                }
+            }
+            document.getElementById('data').innerHTML = browserData;
+        }
+    </script>
+</body>
+</html>
