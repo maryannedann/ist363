@@ -1,0 +1,41 @@
+function App() {
+  return (
+    <div>
+      <h1>Students</h1>
+      <Students />
+      <button onClick={() => StudentButton("Student data button was clicked!")}>
+        Click Me
+      </button>
+    </div>
+  );
+}
+
+function Students() {
+  const list = [
+    { suid: 123456, name: "Sue Flay", year: "Senior", major: "Applied Data Analytics" },
+    { suid: 234567, name: "Ella Vader", year: "Junior", major: "Information Management and Technology" },
+    { suid: 345678, name: "Chris P Bacon", year: "Junior", major: "Innovation, Society and Technology" },
+  ];
+
+  const filteredList = list.filter(student => student.name === "Sue Flay");
+
+  return (
+    <ul>
+      {filteredList.map((student) => (
+        <li key={student.suid}>
+          <p>Name: {student.name}</p>
+          <p>Year: {student.year}</p>
+          <p>Major: {student.major}</p>
+          <br />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+const StudentButton = (message) => {
+  console.log(message);
+};
+
+export default App;
+
