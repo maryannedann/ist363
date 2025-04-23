@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entries - Journaly</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background-color: #F1EAD8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #68604D;
+    }
+
+    .entry-carousel-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px); /* full screen minus navbar */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .arrow-btn {
+      background-color: #68604D;
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 10px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+
+    .arrow-btn:hover {
+      background-color: #4F4635;
+    }
+
+    .arrow-left {
+      left: 20px;
+    }
+
+    .arrow-right {
+      right: 20px;
+    }
+
+    .entry-scroll {
+      display: flex;
+      gap: 40px;
+      transition: transform 0.4s ease;
+      align-items: center;
+    }
+
+    .entry-card {
+      background-color: #D5C7AD;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      padding: 40px 30px;
+      width: 40vw;
+      height: 80vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+      text-align: left;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .entry-card img {
+      width: 100%;
+      max-height: 40%;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .inactive {
+      opacity: 0.4;
+      transform: scale(0.9);
+    }
+
+    .active {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .entry-card {
+        width: 80vw;
+        height: 75vh;
+        padding: 25px 20px;
+      }
+
+      .arrow-btn {
+        font-size: 1.5rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Journaly</a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Entries</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Entry Carousel -->
+<div class="entry-carousel-wrapper">
+  <button class="arrow-btn arrow-left" onclick="scrollEntries(-1)">‹</button>
+
+  <div class="entry-scroll" id="entryScroll">
+    <div class="entry-card inactive">
+      <img src="https://via.placeholder.com/300" alt="Entry Image">
+      <h3>Entry 3</h3>
+      <p><strong>Paris | April 17, 2025</strong></p>
+      <p>Walked along the Seine today. Bought a sketchbook from a street vendor and spent hours drawing the Eiffel Tower. Magic in the air.</p>
+    </div>
+    <div class="entry-card inactive">
+      <img src="https://via.placeholder.com/300" alt="Entry Image">
+      <h3>Entry 2</h3>
+      <p><strong>Amsterdam | April 15, 2025</strong></p>
+      <p>The canals were beautiful this morning. Biked around the city and tried a stroopwafel for the first time—so good!</p>
+    </div>
+    <div class="entry-card active">
+      <img src="https://via.placeholder.com/300" alt="Entry Image">
+      <h3>Main Journal Entry</h3>
+      <p><strong>New York City | April 20, 2025</strong></p>
+      <p>
+        Today was magical. I wandered through Central Park and the cherry blossoms were in full bloom.
+        The weather was just right—sunny but breezy—and I found a quiet bench by the water to sit and sketch.
+        A saxophonist played in the distance, and it felt like a movie moment.
+        Later, I got a chai latte and explored a bookstore tucked between old brick buildings. 
+        I think I’m falling in love with this city.
+      </p>
+    </div>
+    <div class="entry-card inactive">
+      <img src="https://via.placeholder.com/300" alt="Entry Image">
+      <h3>Entry 1</h3>
+      <p><strong>Boston | April 10, 2025</strong></p>
+      <p>Quick stop in Boston. Found a cozy café near Harvard Square. Wrote postcards to friends while sipping tea and watching the rain.</p>
+    </div>
+    <div class="entry-card inactive">
+      <img src="https://via.placeholder.com/300" alt="Entry Image">
+      <h3>Entry 4</h3>
+      <p><strong>Rome | April 5, 2025</strong></p>
+      <p>Trevi Fountain was even more stunning in person. Tossed a coin and made a wish. Can't wait to see where life takes me next.</p>
+    </div>
+  </div>
+
+  <button class="arrow-btn arrow-right" onclick="scrollEntries(1)">›</button>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.entry-card');
+  let currentIndex = 2;
+
+  function updateCarousel() {
+    cards.forEach((card, i) => {
+      card.classList.remove('active', 'inactive');
+      if (i === currentIndex) {
+        card.classList.add('active');
+      } else {
+        card.classList.add('inactive');
+      }
+    });
+
+    const scrollAmount = (cards[0].offsetWidth + 40) * (currentIndex - 2);
+    document.getElementById('entryScroll').style.transform = `translateX(-${scrollAmount}px)`;
+  }
+
+  function scrollEntries(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > cards.length - 1) currentIndex = cards.length - 1;
+    updateCarousel();
+  }
+
+  updateCarousel();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
